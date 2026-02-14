@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Valentine 💖</title>
+
+<style>
+body {
+    margin: 0;
+    background: black;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+}
+
+/* Glowing Name */
+.glow {
+    font-size: 70px;
+    margin-top: 50px;
+    color: #ff4da6;
+    text-shadow: 0 0 20px #ff4da6, 0 0 40px #ff1a8c, 0 0 60px #ff0066;
+}
+
+/* Buttons */
+button {
+    padding: 15px 30px;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 20px;
+}
+
+#yesBtn {
+    background: hotpink;
+    color: white;
+}
+
+#noBtn {
+    background: white;
+    color: black;
+    position: absolute;
+}
+
+/* Floating hearts */
+.heart {
+    position: absolute;
+    color: pink;
+    font-size: 20px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    from {
+        transform: translateY(100vh);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<h1 class="glow">MEGAN 💖</h1>
+
+<img src="IMG_1132.jpeg" width="300" style="border-radius:20px; margin-top:20px;">
+
+<h2>YOU ARE MY Valentine? 💕</h2>
+
+<button id="yesBtn">Yes 😍</button>
+<button id="noBtn">No 😢</button>
+
+<!-- Sade Song Embed (Smooth Operator example) -->
+<div style="margin-top:40px;">
+<iframe width="300" height="80"
+src="https://www.youtube.com/embed/oP4sBeV7llE?autoplay=1&loop=1"
+frameborder="0" allow="autoplay">
+</iframe>
+</div>
+
+<script>
+// Floating Hearts Generator
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}, 300);
+
+// No button runs away
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", () => {
+    noBtn.style.top = Math.random() * window.innerHeight + "px";
+    noBtn.style.left = Math.random() * window.innerWidth + "px";
+});
+
+// Confetti explosion
+document.getElementById("yesBtn").addEventListener("click", () => {
+    alert("YAY!!! I LOVE YOU 💖");
+    for (let i = 0; i < 100; i++) {
+        const confetti = document.createElement("div");
+        confetti.innerHTML = "🎉";
+        confetti.style.position = "absolute";
+        confetti.style.left = Math.random() * window.innerWidth + "px";
+        confetti.style.top = Math.random() * window.innerHeight + "px";
+        confetti.style.fontSize = "30px";
+        document.body.appendChild(confetti);
+    }
+});
+</script>
+
+</body>
+</html>
